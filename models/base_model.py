@@ -10,19 +10,16 @@ class BaseModel:
     """Class Base"""
     def __init__(self, *args, **kwargs):
         """Constructor"""
-        if kwargs:
+        if not kwargs:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()            
+        else:
             for key, value in kwargs.items():
                 if key in ("created_at", "updated_at"):
                     self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                elif key[0] == "id":
-                    self.__dict__[key] = str(value)
                 else:
                     self.__dict__[key] = value
-        else:
-
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
 
     def __str__(self):
         """String expression of object"""
