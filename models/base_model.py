@@ -10,6 +10,7 @@ class BaseModel:
     """Class Base"""
     def __init__(self):
         """Constructor"""
+        if
         self.id = str(uuid4())
         self.created_at = datatime.now()
         self.updated_at = datatime.now()
@@ -24,4 +25,10 @@ class BaseModel:
 
     def to_dict(self):
         """Dictionary with keys/values of __dict__ of the instance"""
-
+        el = {}
+        for key, value in self.__dict__.items():
+            if key == "created_at" or key == "updated_at":
+                el[key] = value.isoformat()
+            else:
+                el[key] = value
+        return el
