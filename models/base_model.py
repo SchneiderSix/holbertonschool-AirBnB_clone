@@ -18,6 +18,7 @@ class BaseModel:
                     self.__dict__[key] = str(value)
                 else:
                     self.__dict__[key] = value
+        else:
 
         self.id = str(uuid4())
         self.created_at = datetime.now()
