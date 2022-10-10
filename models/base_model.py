@@ -12,10 +12,8 @@ class BaseModel:
         """Constructor"""
         if kwargs:
             for key, value in kwargs.items():
-                if key in created_at or key in updated_at:
+                if key == "created_at" or key == "updated_at":
                     self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                elif key[0] == 'id':
-                    self.__dict__[0] = value
                 else:
                     self.__dict__[key] = value
 
