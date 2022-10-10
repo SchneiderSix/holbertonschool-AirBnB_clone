@@ -10,7 +10,6 @@ class BaseModel:
     """Class Base"""
     def __init__(self):
         """Constructor"""
-        if
         self.id = str(uuid4())
         self.created_at = datatime.now()
         self.updated_at = datatime.now()
