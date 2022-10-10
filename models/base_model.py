@@ -10,7 +10,6 @@ class BaseModel:
     """Class Base"""
     def __init__(self):
         """Constructor"""
-        DATA_TIME_FORMAT = 
         self.id = str(uuid4())
         self.created_at = datatime.now()
         self.updated_at = datatime.now()
@@ -21,7 +20,7 @@ class BaseModel:
 
     def save(self):
         """Updates ins att with current datatime"""
-        self.updated_at = datatime.utcnow()
+        self.updated_at = datatime.now()
 
     def to_dict(self):
         """Dictionary with keys/values of __dict__ of the instance"""
