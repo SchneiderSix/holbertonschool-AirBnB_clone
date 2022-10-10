@@ -30,5 +30,5 @@ class BaseModel:
                 el[key] = value.isoformat()
             else:
                 el[key] = value
-            el["__clas__"] = self.__class__.__name__
+            el["__class__"] = self.__class__.__name__
         return el
