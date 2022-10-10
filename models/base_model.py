@@ -8,8 +8,17 @@ from datetime import datetime
 
 class BaseModel:
     """Class Base"""
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Constructor"""
+        if kwargs:
+            for key, value in kwargs.items():
+                if key in created_at or key in updated_at:
+                    self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                elif key[0] == 'id':
+                    self.__dict__[0] = value
+                else:
+                    self.__dict__[key] = value
+
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
