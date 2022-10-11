@@ -30,10 +30,6 @@ class FileStorage:
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
-                rv = json.load(rf)
-                for value in rv.values():
-                    cn = value["__class__"]
-                    del value["__class__"]
-                    self.new(eval(cn)(**value))
+                self.__objects.update(json.load(rf))
         except:
             pass
