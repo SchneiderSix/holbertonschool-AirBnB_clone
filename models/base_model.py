@@ -20,8 +20,8 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key in ("created_at", "updated_at"):
                     self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                elif key != "__class__":
-                    setattr(self, key, value)
+                else:
+                    self.__dict__[key] = value
 
     def __str__(self):
         """String expression of object"""
