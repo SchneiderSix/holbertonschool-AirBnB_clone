@@ -27,6 +27,6 @@ class FileStorage:
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
-                json.load(rf, indent=4)
+                dat = json.load(rf, indent=4)
         except:
             pass
