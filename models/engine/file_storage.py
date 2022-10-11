@@ -3,7 +3,7 @@
 Module File Storage
 """
 import json
-import models.base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class FileStorage:
