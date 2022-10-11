@@ -24,12 +24,15 @@ class FileStorage:
             sv = {key: value.to_dict() for key, value in self.__objects.items()}
             json.dump(sv, sf)
 
+    def clss(self):
+        classes = {"BaseModel": BaseModel}
+
     def reload(self):
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
                 rv = json.load(rf)
-                rv = {key: BaseModel[value["__class__"]](**value)
+                rv = {key: self.clss()[value["__class__"]](**value)
                 for key, value in rv.items()}
             self.__objects = rv
         except:
