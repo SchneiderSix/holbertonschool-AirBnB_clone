@@ -30,8 +30,6 @@ class FileStorage:
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
-                _o = json.load(rf)
-                for key in _o:
-                    self.__objects[key] = model[_o[key]["__class__"]](**_o[key])
+                self.__objects.update(json.loads(rf.read()))
         except:
             pass
