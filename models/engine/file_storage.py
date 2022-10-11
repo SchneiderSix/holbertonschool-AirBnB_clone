@@ -34,4 +34,4 @@ class FileStorage:
                     del value["__class__"]
                     self.new(eval(cn)(**value))
         except:
-            return
+            pass
