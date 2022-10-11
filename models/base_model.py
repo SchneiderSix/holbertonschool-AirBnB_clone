@@ -38,7 +38,7 @@ class BaseModel:
         ndic["__class__"] = self.__class__.__name__
         for key, value in ndic.items():
             if key in ("created_at", "updated_at"):
-                ndic.update([(key, value, isoformat())])
+                ndic.update([(key, value.isoformat())])
             else:
                 ndic.update([(key, value)])
         return ndic
