@@ -14,8 +14,7 @@ class BaseModel:
         if not kwargs:
             self.id = str(uuid4())
             self.created_at = datetime.now()
-            self.updated_at = datetime.now()    
-            storage.new(self)        
+            self.updated_at = datetime.now()   
         else:
             for key, value in kwargs.items():
                 if key in ("created_at", "updated_at"):
