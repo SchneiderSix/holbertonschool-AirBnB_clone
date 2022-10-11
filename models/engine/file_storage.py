@@ -31,6 +31,7 @@ class FileStorage:
         try:
             with open(self.__file_path) as rf:
                 jl = json.loads(rf.read())
-                self.__objects.update(jl)
+                for value in jl.values():
+                    self.new(BaseModel(**value))
         except:
             pass
