@@ -34,8 +34,11 @@ class BaseModel:
 
     def to_dict(self):
         """Dictionary with keys/values of __dict__ of the instance"""
-        ndic = dict(self.__dict__)
+        ndic = self.__dict__.copy()
         ndic["__class__"] = self.__class__.__name__
-        ndic["created_at"] = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
-        ndic["updated_at"] = self.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
+        for key, value in kwargs.items():
+            if key in ("created_at", "updated_at"):
+                ndic.update([(key, value, isoformat())])
+            else:
+                ndic.update([(key, value)])
         return ndic
