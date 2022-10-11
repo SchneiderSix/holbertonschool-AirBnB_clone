@@ -11,12 +11,7 @@ class BaseModel:
     """Class Base"""
     def __init__(self, *args, **kwargs):
         """Constructor"""
-        if not kwargs:
-            self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-            storage.new(self)
-        else:
+        if len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key == "created_at":
                     self.created_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'):
@@ -24,6 +19,12 @@ class BaseModel:
                     self.updated_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'):
                 elif key != "__class__":
                     setattr(self, key, value)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            storage.new(self)
+
 
     def __str__(self):
         """String expression of object"""
