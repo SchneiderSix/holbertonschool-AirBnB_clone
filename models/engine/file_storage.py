@@ -28,9 +28,7 @@ class FileStorage:
         try:
             with open(self.__file_path) as rf:
                 my_dict = json.load(rf)
-                for i in my_dict.values():
-                    clsn = i["__class__"]
-                    del i["__class__"]
-                    self.new(eval(clsn)(**i))
+                for i in my_dict:
+                    self.__objects[i] = cls[my_dict[i]["__class__"]](**my_dict[i])
         except:
             pass
