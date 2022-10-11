@@ -20,11 +20,13 @@ class FileStorage:
 
     def save(self):
         """Serializes to json"""
-        with open(self.__file_path, 'w') as sf:
+        with open(self.__file_path, 'w+') as sf:
             json.dump(self.__objects, sf,  indent=4)
 
     def reload(self):
         """Deserializes from json"""
-        if self.__file_path:
+        try:
             with open(self.__file_path) as rf:
                 json.load(rf, indent=4)
+        except:
+            pass
