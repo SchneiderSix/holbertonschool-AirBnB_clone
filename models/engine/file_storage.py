@@ -2,6 +2,7 @@
 """
 Module File Storage
 """
+from os.path import isfile
 import json
 
 
@@ -25,8 +26,7 @@ class FileStorage:
 
     def reload(self):
         """Deserializes from json"""
-        try:
+        if isfile(self.__file_path):
             with open(self.__file_path) as rf:
-                self.__objects.update(json.load(rf))
-        except:
-            pass
+                self.__objects.update(json.loads(rf.read()))
+
