@@ -16,7 +16,7 @@ class FileStorage:
 
     def new(self, obj):
         """Set new object"""
-        self.__objects[obj.__class__.__name__ + '.' + str(obj)] = obj
+        self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
     def save(self):
         """Serializes to json"""
@@ -27,6 +27,8 @@ class FileStorage:
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
-                json.load(rf)
+                my_dict = json.loads(rf.read())
+                for key, value in my_dict.items():
+                    self.new(my_dict[value["__class__"]](**value))
         except:
             pass
