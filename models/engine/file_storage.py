@@ -28,5 +28,6 @@ class FileStorage:
         try:
             with open(self.__file_path) as rf:
                 rv = json.load(rf)
+                self.new(rv)
         except:
             pass
