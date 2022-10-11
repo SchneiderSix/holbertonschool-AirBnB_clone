@@ -30,7 +30,7 @@ class FileStorage:
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
-                self.__objects.update(json.load(rf.read))
+                self.__objects.update(json.loads(rf.read()))
         except:
             pass
 
