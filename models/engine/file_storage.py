@@ -3,6 +3,7 @@
 Module File Storage
 """
 import json
+import models.base_model import BaseModel
 
 
 class FileStorage:
@@ -20,13 +21,16 @@ class FileStorage:
 
     def save(self):
         """Serializes to json"""
+        ob = {}
+        for key in self.__objects:
+            ob[key] = self.__objects[key].to_dict()
         with open(self.__file_path, 'w') as sf:
-            json.dump(self.__objects, sf,  indent=4)
+            json.dump(ob, sf)
 
     def reload(self):
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
-                my_dict = json.load(rf)
+                dictjson = json.load(rf)
         except:
             pass
