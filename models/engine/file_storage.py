@@ -18,7 +18,7 @@ class FileStorage:
         """Set new object"""
         self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
-    def to_dict(self):
+    def o_dict(self):
         """Dictionary with keys/values of __dict__ of the instance"""
         el = {}
         for key, value in self.__dict__.items():
@@ -33,7 +33,7 @@ class FileStorage:
         """Serializes to json"""
         ob = {}
         for key in self.__objects:
-            ob[key] = self.__objects[key].to_dict()
+            ob[key] = self.__objects[key].o_dict()
         with open(self.__file_path, 'w') as sf:
             json.dump(ob, sf)
 
