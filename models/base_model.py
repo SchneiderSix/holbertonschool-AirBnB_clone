@@ -36,7 +36,7 @@ class BaseModel:
         """Dictionary with keys/values of __dict__ of the instance"""
         ndic = self.__dict__.copy()
         ndic["__class__"] = self.__class__.__name__
-        for key, value in kwargs.items():
+        for key, value in ndic.items():
             if key in ("created_at", "updated_at"):
                 ndic.update([(key, value, isoformat())])
             else:
