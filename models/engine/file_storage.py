@@ -28,6 +28,9 @@ class FileStorage:
         """Deserializes from json"""
         try:
             with open(self.__file_path) as rf:
-                dictjson = json.load(rf)
+                rv = json.load(rf)
+                rv = {key: BaseModel[value["__class__"]](**value)
+                for key, value in rv.items()}
+            self.__objects = rv
         except:
             pass
