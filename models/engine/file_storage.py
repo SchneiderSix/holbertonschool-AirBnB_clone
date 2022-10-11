@@ -18,10 +18,24 @@ class FileStorage:
         """Set new object"""
         self.__objects[obj.__class__.__name__ + '.' + obj.id] = obj
 
+    def o_dict(self):
+        """Dictionary with keys/values of __dict__ of the instance"""
+        el = {}
+        for key, value in self.__dict__.items():
+            if key == "created_at" or key == "updated_at":
+                el[key] = value.isoformat()
+            else:
+                el[key] = value
+            el["__class__"] = self.__class__.__name__
+        return el
+
     def save(self):
         """Serializes to json"""
-        with open(self.__file_path, 'w+') as sf:
-            json.dump(self.__objects, sf,  indent=4)
+        ob = {}
+        for key in self.__objects:
+            ob[key] = self.__objects[key].o_dict()
+        with open(self.__file_path, 'w') as sf:
+            json.dump(ob, sf)
 
     def reload(self):
         """Deserializes from json"""
