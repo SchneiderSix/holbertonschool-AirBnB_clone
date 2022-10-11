@@ -34,11 +34,8 @@ class BaseModel:
 
     def to_dict(self):
         """Dictionary with keys/values of __dict__ of the instance"""
-        el = {}
-        for key, value in self.__dict__.items():
-            if key == "created_at" or key == "updated_at":
-                el[key] = value.isoformat()
-            else:
-                el[key] = value
-            el["__class__"] = self.__class__.__name__
-        return el
+        ndic = dict(self.__dict__)
+        ndic["__class__"] = self.__class__.__name__
+        ndic["created_at"] = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
+        ndic["updated_at"] = self.updated_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
+        return ndic
