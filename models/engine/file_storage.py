@@ -22,7 +22,7 @@ class FileStorage:
         """Serializes to json"""
         my_dict = {}
         for key, value in self.__objects.items():
-        my_dict[key] = value.to_dict()
+            my_dict[key] = value.to_dict()
         with open(self.__file_path, 'w') as sf:
             json.dump(my_dict, sf)
 
