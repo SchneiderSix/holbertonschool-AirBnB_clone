@@ -39,5 +39,5 @@ class BaseModel:
         ndic = dict(self.__dict__)
         ndic["__class__"] = self.__class__.__name__
         ndic["created_at"] = self.created_at.isoformat()
-        ndic["updated_at"] = self.created_at.isoformat()
+        ndic["updated_at"] = self.updated_at.isoformat()
         return ndic
