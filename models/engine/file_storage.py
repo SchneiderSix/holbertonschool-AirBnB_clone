@@ -24,6 +24,7 @@ class FileStorage:
                 "City": City, "Place": Place,
                 "Review": Review, "State": State, "User": User}
         return classes
+
     def all(self):
         """Returns dic of obj"""
         return self.__objects
