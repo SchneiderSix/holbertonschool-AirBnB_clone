@@ -43,9 +43,10 @@ class FileStorage:
 
     def reload(self):
         """Deserializes from json"""
+        from models.base_model import BaseModel
         try:
             with open(self.__file_path) as rf:
-                jl = json.loads(rf.read())
-                self.__objects.update(jl)
+                for key, value in json.load(rf).items():
+                    self.__objects.(key) = BaseModel(**value)
         except:
             pass
