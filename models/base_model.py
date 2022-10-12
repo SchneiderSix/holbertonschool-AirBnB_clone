@@ -19,7 +19,9 @@ class BaseModel:
         else:
             for key, value in kwargs.items():
                 if key in ("created_at", "updated_at"):
-                    self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                    self.__dict__[key] = datetime.fromisoformat(value)
+                elif key == '__class__':
+                    continue
                 else:
                     self.__dict__[key] = value
 
@@ -36,6 +38,6 @@ class BaseModel:
         """Dictionary with keys/values of __dict__ of the instance"""
         ndic = dict(self.__dict__)
         ndic["__class__"] = self.__class__.__name__
-        ndic["created_at"] = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
-        ndic["updated_at"] = self.created_at.strftime('%Y-%m-%dT%H:%M:%S.%f')
+        ndic["created_at"] = self.created_at.isoformat()
+        ndic["updated_at"] = self.created_at.isoformat()
         return ndic
