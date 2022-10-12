@@ -9,12 +9,14 @@ from models import storage
 
 class BaseModel:
     """Class Base"""
+    instances = []
     def __init__(self, *args, **kwargs):
         """Constructor"""
         if not kwargs:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            self.__class__.instances.append(self)
             storage.new(self)
         else:
             for key, value in kwargs.items():
@@ -22,6 +24,7 @@ class BaseModel:
                     self.__dict__[key] = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 else:
                     self.__dict__[key] = value
+            self.__class__.instances.append(self)
 
     def __str__(self):
         """String expression of object"""

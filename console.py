@@ -57,6 +57,12 @@ class HBNBCommand(cmd.Cmd):
         else:
             "** no instance found **"
 
+    def do_all(self, args):
+        """Prints string representation of class"""
+        if isinstance(args[0], BaseModel):
+            print('\n'.join(BaseModel.instances))
+        else:
+            "** class doesn't exist **"
 
 
 if __name__ == '__main__':
