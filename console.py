@@ -64,6 +64,23 @@ class HBNBCommand(cmd.Cmd):
         else:
             "** class doesn't exist **"
 
+    def do_update(self, args):
+        """Updates instance attribute"""
+        if args[0] == '':
+            "** class name missing **"
+        elif isinstance(args[0], BaseModel) is False:
+            "** class doesn't exist **"
+        elif args[1] == '':
+            "** instance id missing **"
+        elif isinstance(args[0], BaseModel) and args[1] != args[0].id:
+            "** no instance found **"
+        elif args[2] == '':
+            "** attribute name missing **"
+        elif args[3] == '':
+            "** value missing **"
+        else:
+            args[0].args[2] = args[3]
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
