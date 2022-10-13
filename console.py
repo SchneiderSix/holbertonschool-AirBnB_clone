@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
             if print(tok[0] in cls_dic):
                 for key in storage.all():
                     if tok[0] in key:
-                        el += [storage.all()[key]]
+                        el.append(str(storage.all()[key])
                 print(el)
             else:
                 print("** class doesn't exist **")
