@@ -89,8 +89,8 @@ class HBNBCommand(cmd.Cmd):
         if args != '':
 
             if tok[0] == "BaseModel" or tok[0] == "Amenity" or \
-            tok[0] == "City" or tok[0] == "Place" or \
-            tok[0] == "Review" or tok[0] == "State" or tok[0] == "User":
+                        tok[0] == "City" or tok[0] == "Place" or \
+                        tok[0] == "Review" or tok[0] == "State" or tok[0] == "User":
                 for key in storage.all():
                     if tok[0] in key:
                         el.append(str(storage.all()[key]))
@@ -126,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
 
             for key, value in storage.all().items():
                 if tok[0] == value.__class__.__name__ and \
-                tok[1].strip('"') == value.id:
+                            tok[1].strip('"') == value.id:
                     setattr(value, tok[2], tok[3])
 
 if __name__ == '__main__':
