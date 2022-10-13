@@ -90,7 +90,8 @@ class HBNBCommand(cmd.Cmd):
 
             if tok[0] == "BaseModel" or tok[0] == "Amenity" or \
                         tok[0] == "City" or tok[0] == "Place" or \
-                        tok[0] == "Review" or tok[0] == "State" or tok[0] == "User":
+                        tok[0] == "Review" or tok[0] == "State" or \
+                        tok[0] == "User":
                 for key in storage.all():
                     if tok[0] in key:
                         el.append(str(storage.all()[key]))
