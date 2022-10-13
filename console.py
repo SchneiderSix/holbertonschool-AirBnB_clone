@@ -102,13 +102,11 @@ class HBNBCommand(cmd.Cmd):
                     if tok[0] == value.__class__.__name__:
                         el = [str(value) for key, value in storage.all().items()]
                 print(el)
-                return
             else:
                 print("** class doesn't exist **")
         else:
             el = [str(value) for key, value in storage.all().items()]
             print(el)
-            return
 
     def do_update(self, args):
         """Updates instance attribute"""
