@@ -4,6 +4,7 @@
 
 import unittest
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
 
 class TestBaseModel(unittest.TestCase):
@@ -20,6 +21,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(isinstance(my_model.created_at, datetime))
         self.assertTrue(isinstance(my_model.updated_at, datetime))
         self.assertEqual(type(my_model_dict), dict)
+
+class TestFileStorage(unittest.TestCase):
+    """Testing FileStorage"""
+    def test_filestorage(self):
+        my_model = FileStorage()
+        my_model_list = storage.all()
+        self.assertEqual(type(my_model_list), list)
 
 if __name__ == "__main__":
     unittest.main()
