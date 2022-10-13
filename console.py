@@ -89,19 +89,19 @@ class HBNBCommand(cmd.Cmd):
         """Prints string representation of class"""
         tok = args.split(' ')
         el = []
-        if not args:
-            for key, value in storage.all().items():
-                    el += list(value.__str__())
+        if args != '':
+
+            if inspect.isclass(tok[0]):
+                for key, value in storage.all().items():
+                    if tok[0] == value.__class__.__name__:
+                        el += list(value.__str__())
+                print(el)
+            else:
+                print("** class doesn't exist **")
+        else:
+            el = [str(value) for key, value in storage.all().items()]
             print(el)
             return
-
-        if inspect.isclass(tok[0]):
-            for key, value in storage.all().items():
-                if tok[0] == value.__class__.__name__:
-                    el += list(value.__str__())
-            print(el)
-        else:
-            print("** class doesn't exist **")
 
     def do_update(self, args):
         """Updates instance attribute"""
