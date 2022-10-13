@@ -8,7 +8,7 @@ class TestReview(unittest.TestCase):
     """Testing review"""
     def test_reviewclass(self):
         my_model = Review()
-        self.assertTrue(type(self.my_model.text) is str)
+        self.assertTrue(type(my_model.text) is str)
 
 if __name__ == "__main__":
     unittest.main()

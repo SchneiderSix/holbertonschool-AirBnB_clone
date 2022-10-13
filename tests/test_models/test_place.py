@@ -8,7 +8,7 @@ class TestPlace(unittest.TestCase):
     """Testing place"""
     def test_placeclass(self):
         my_model = Place()
-        self.assertTrue(type(self.my_model.name) is str)
+        self.assertTrue(type(smy_model.name) is str)
 
 if __name__ == "__main__":
     unittest.main()
