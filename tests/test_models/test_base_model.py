@@ -4,6 +4,7 @@
 
 import unittest
 from datetime import datetime
+from models import storage
 from models.base_model import BaseModel
 
 
@@ -20,7 +21,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(my_model.my_number, 89)
         self.assertTrue(isinstance(my_model.created_at, datetime))
         self.assertTrue(isinstance(my_model.updated_at, datetime))
-        self.assertEqual(type(my_model.__dict__), dict)
+        self.assertEqual(type(my_model_dict), dict)
 
 if __name__ == "__main__":
     unittest.main()
