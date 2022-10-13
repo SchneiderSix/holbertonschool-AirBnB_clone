@@ -6,7 +6,7 @@ from models.amenity import Amenity
 
 class TestAmenity(unittest.TestCase):
     """Testing amenity"""
-    def test_userclass(self):
+    def test_amenityclass(self):
         my_model = Amenity()
         self.assertTrue(type(self.my_model.name) is str)
 

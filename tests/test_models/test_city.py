@@ -6,7 +6,7 @@ from models.city import City
 
 class TestCity(unittest.TestCase):
     """Testing city"""
-    def test_userclass(self):
+    def test_cityclass(self):
         my_model = City()
         self.assertTrue(type(self.my_model.name) is str)
 

@@ -6,7 +6,7 @@ from models.review import Review
 
 class TestReview(unittest.TestCase):
     """Testing review"""
-    def test_userclass(self):
+    def test_reviewclass(self):
         my_model = Review()
         self.assertTrue(type(self.my_model.text) is str)
 

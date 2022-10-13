@@ -6,7 +6,7 @@ from models.state import State
 
 class TestState(unittest.TestCase):
     """Testing state"""
-    def test_userclass(self):
+    def test_stateclass(self):
         my_model = State()
         self.assertTrue(type(self.my_model.name) is str)
 
