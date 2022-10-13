@@ -19,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def emptyline(self):
-        """Take empty line""" 
+        """Take empty line"""
         pass
 
     def do_quit(self, args):
@@ -62,8 +62,6 @@ class HBNBCommand(cmd.Cmd):
             except:
                 print("** class doesn't exist **")
 
-
-
     def do_destroy(self, args):
         """Destroy object"""
         tok = args.split()
@@ -84,15 +82,15 @@ class HBNBCommand(cmd.Cmd):
         except:
             print("** class doesn't exist **")
 
-        
-
     def do_all(self, args):
         """Prints string representation of class"""
         tok = args.split()
         el = []
         if args != '':
 
-            if tok[0] == "BaseModel" or tok[0] == "Amenity" or tok[0] == "City" or tok[0] == "Place" or tok[0] == "Review" or tok[0] == "State" or tok[0] == "User": 
+            if tok[0] == "BaseModel" or tok[0] == "Amenity" or \
+            tok[0] == "City" or tok[0] == "Place" or \
+            tok[0] == "Review" or tok[0] == "State" or tok[0] == "User":
                 for key in storage.all():
                     if tok[0] in key:
                         el.append(str(storage.all()[key]))
@@ -127,7 +125,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
             for key, value in storage.all().items():
-                if tok[0] == value.__class__.__name__ and tok[1].strip('"') == value.id:
+                if tok[0] == value.__class__.__name__ and \
+                tok[1].strip('"') == value.id:
                     setattr(value, tok[2], tok[3])
 
 if __name__ == '__main__':
