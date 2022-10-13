@@ -3,6 +3,7 @@
 Module Console
 """
 import cmd
+from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models.amenity import Amenity
