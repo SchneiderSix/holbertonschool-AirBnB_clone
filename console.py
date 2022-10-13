@@ -97,8 +97,8 @@ class HBNBCommand(cmd.Cmd):
                     "User": User}
         if args != '':
 
-           for ky in cls_dic:
-            if tok[0] == ky: 
+           for ky, val in cls_dic:
+            if tok[0] == val: 
                 for key in storage.all():
                     if tok[0] in key:
                         el.append(str(storage.all()[key]))
