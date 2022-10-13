@@ -47,18 +47,19 @@ class HBNBCommand(cmd.Cmd):
         tok = args.split()
         if len(tok) == 0:
             print("** class name missing **")
-        if len(tok) == 1:
-            print("** instance id missing **")
-        try:
-            eval(tok[0])
-        except:
-            print("** class doesn't exist **")
+        else:
+            if len(tok) == 1:
+                print("** instance id missing **")
+            try:
+                eval(tok[0])
+            except:
+                print("** class doesn't exist **")
 
-        ky = f"{tok[0]}.{tok[1]}"
-        try:
-            print(storage.all()[ky])
-        except:
-            print("** no instance found **")
+            ky = f"{tok[0]}.{tok[1]}"
+            try:
+                print(storage.all()[ky])
+            except:
+                print("** no instance found **")
 
 
     def do_destroy(self, args):
