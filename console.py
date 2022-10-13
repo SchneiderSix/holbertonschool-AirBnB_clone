@@ -106,8 +106,9 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """Updates instance attribute"""
         tok = args.split()
-        if len(tok) == 0:
+        if len(args) == 0:
             print("** class name missing **")
+            return
         if len(tok) == 1:
             print("** instance id missing **")
         if len(tok) == 2:
