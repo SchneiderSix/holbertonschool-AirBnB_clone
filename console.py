@@ -76,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             del storage.all()[ky]
         except:
-            "** no instance found **"
+            print("** no instance found **")
         storage.save()
 
     def do_all(self, args):
@@ -97,21 +97,27 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, args):
         """Updates instance attribute"""
-        if args[0] == '':
-            "** class name missing **"
-        elif isinstance(args[0], BaseModel) is False:
-            "** class doesn't exist **"
-        elif args[1] == '':
-            "** instance id missing **"
-        elif isinstance(args[0], BaseModel) and args[1] != args[0].id:
-            "** no instance found **"
-        elif args[2] == '':
-            "** attribute name missing **"
-        elif args[3] == '':
-            "** value missing **"
-        else:
-            args[0].args[2] = args[3]
+        tok = args.split()
+        if not tok[0]:
+            print("** class name missing **")
+        if not tok[1]:
+            print("** instance id missing **")
+        if not tok[2]:
+            print("** attribute name missing **")
+        if not tok[3]:
+            print("** value missing **")
+        try:
+            eval(tok[0])
+        except:
+            print("** class doesn't exist **")
 
+        ky = f"{tok[0]}.{tok[1]}"
+        if ky not in storage.all():
+            print("** no instance found **")
+
+        for key, value in storage.all().items():
+            if tok[0] == value.__class__.__name__ and tok[1].strip('"') == value.id:
+                setattr(value, tok[2], tok[3])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
