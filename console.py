@@ -67,7 +67,8 @@ class HBNBCommand(cmd.Cmd):
         tok = args.split()
         if len(args) == 0:
             print("** class name missing **")
-        if tok[1] == 0:
+            return
+        if len(tok) == 1:
             print("** instance id missing **")
         try:
             eval(tok[0])
