@@ -99,7 +99,8 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** class doesn't exist **")
         else:
-            el = [str(value) for key, value in storage.all().items()]
+            for key in storage.all():
+                el.append(str(storage.all()[key]))
             print(el)
 
     def do_update(self, args):
