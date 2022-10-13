@@ -94,8 +94,9 @@ class HBNBCommand(cmd.Cmd):
             if inspect.isclass(tok[0]):
                 for key, value in storage.all().items():
                     if tok[0] == value.__class__.__name__:
-                        el += list(value.__str__())
+                        el = [str(value) for key, value in storage.all().items()]
                 print(el)
+                return
             else:
                 print("** class doesn't exist **")
         else:
