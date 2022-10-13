@@ -34,12 +34,13 @@ class HBNBCommand(cmd.Cmd):
         tok = args.split()
         if len(args) == 0:
             print("** class name missing **")
-        try:
-            nins = eval(tok[0])()
-            nins.save()
-            print(nins.id)
-        except:
-            print("** class doesn't exist **")
+        else:
+            try:
+                nins = eval(tok[0])()
+                nins.save()
+                print(nins.id)
+            except:
+                print("** class doesn't exist **")
 
     def do_show(self, args):
         """Show string representation of object"""
