@@ -34,7 +34,6 @@ class HBNBCommand(cmd.Cmd):
         tok = args.split()
         if not tok[0]:
             print("** class name missing **")
-            return
         try:
             nins = eval(tok[0])()
             nins.save()
@@ -44,16 +43,24 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         """Show string representation of object"""
-        if isinstance(args[0], BaseModel) and args[1] == args[0].id:
-            f"{args[0].__str__()}"
-        elif args[0] == '':
-            "** class name missing **"
-        elif args[1] == '':
-            "** instance id missing **"
-        elif isinstance(args[0], BaseModel) is False:
-            "** class doesn't exist **"
-        else:
-            "** no instance found **"
+        tok = args.split()
+        if not tok[0]:
+            print("** class name missing **")
+            return
+        if not tok[1]:
+            print("** instance id missing **")
+            return
+        try:
+            eval(tok[0])
+        except:
+            print("** class doesn't exist **")
+
+        ky = f"{tok[0]}.{tok[1]}"
+        try:
+            print(storage.all()[ky])
+        except:
+            print("** no instance found **")
+
 
     def do_destroy(self, args):
         """Destroy object"""
