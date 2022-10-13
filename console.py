@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
         except:
             print("** class doesn't exist **")
 
-        ky = f"{tok[0]}.{tok[1]}"
+        ky = tok[0] + "." + tok[1]
         try:
             del storage.all()[ky]
         except:
