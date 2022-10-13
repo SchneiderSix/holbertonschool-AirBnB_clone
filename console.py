@@ -87,6 +87,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Prints string representation of class"""
         tok = args.split()
+        el = []
         cls_dic = {"BaseModel": BaseModel,
                     "Amenity": Amenity,
                     "City": City,
