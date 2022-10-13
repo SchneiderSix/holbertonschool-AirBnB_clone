@@ -97,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
                     "User": User}
         if args != '':
 
-            if tok[0] is in cls_dic.items():
+            if print(tok[0] in cls_dic):
                 for key, value in storage.all().items():
                     if tok[0] == value.__class__.__name__:
                         el = [str(value) for key, value in storage.all().items()]
