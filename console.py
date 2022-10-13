@@ -62,23 +62,38 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, args):
         """Destroy object"""
-        if isinstance(args[0], BaseModel) and args[1] == args[0].id:
-            pass
-        elif args[0] == '':
-            "** class name missing **"
-        elif args[1] == '':
-            "** instance id missing **"
-        elif isinstance(args[0], BaseModel) is False:
-            "** class doesn't exist **"
-        else:
+        tok = args.split()
+        if not tok[0]:
+            print("** class name missing **")
+        if not tok[1]:
+            print("** instance id missing **")
+        try:
+            eval(tok[0])
+        except:
+            print("** class doesn't exist **")
+
+        ky = f"{tok[0]}.{tok[1]}"
+        try:
+            del storage.all()[ky]
+        except:
             "** no instance found **"
+        storage.save()
 
     def do_all(self, args):
         """Prints string representation of class"""
-        if isinstance(args[0], BaseModel):
-            print('\n'.join(BaseModel.instances))
-        else:
-            "** class doesn't exist **"
+        tok = args.split()
+        if not tok[0]:
+            print("** class name missing **")
+        try:
+            eval(tok[0])
+        except:
+            print("** class doesn't exist **")
+
+        el = []
+        for key, value in storage.all().items():
+            if tok[0] == value.__class__.__name__:
+                el += list(value.__str__())
+        print(el)
 
     def do_update(self, args):
         """Updates instance attribute"""
