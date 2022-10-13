@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         """Create instance of BaseModel"""
         tok = args.split()
-        if not tok[0]:
+        if tok[0] == 0:
             print("** class name missing **")
         try:
             nins = eval(tok[0])()
@@ -44,9 +44,9 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         """Show string representation of object"""
         tok = args.split()
-        if not tok[0]:
+        if tok[0] == 0:
             print("** class name missing **")
-        if not tok[1]:
+        if tok[1] == 0:
             print("** instance id missing **")
         try:
             eval(tok[0])
@@ -63,9 +63,9 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, args):
         """Destroy object"""
         tok = args.split()
-        if not tok[0]:
+        if tok[0] == 0:
             print("** class name missing **")
-        if not tok[1]:
+        if tok[1] == 0:
             print("** instance id missing **")
         try:
             eval(tok[0])
@@ -82,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Prints string representation of class"""
         tok = args.split()
-        if not tok[0]:
+        if tok[0] == 0:
             print("** class name missing **")
         try:
             eval(tok[0])
@@ -98,13 +98,13 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """Updates instance attribute"""
         tok = args.split()
-        if not tok[0]:
+        if tok[0] == 0:
             print("** class name missing **")
-        if not tok[1]:
+         if tok[1] == 0:
             print("** instance id missing **")
-        if not tok[2]:
+         if tok[2] == 0:
             print("** attribute name missing **")
-        if not tok[3]:
+         if tok[3] == 0:
             print("** value missing **")
         try:
             eval(tok[0])
