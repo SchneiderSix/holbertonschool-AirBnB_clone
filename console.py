@@ -67,20 +67,19 @@ class HBNBCommand(cmd.Cmd):
         tok = args.split()
         if len(args) == 0:
             print("** class name missing **")
-        else:
-            if len(tok) == 1:
-                print("** instance id missing **")
-            try:
-                eval(tok[0])
-            except:
-                print("** class doesn't exist **")
+        if tok[1] == 0:
+            print("** instance id missing **")
+        try:
+            eval(tok[0])
+        except:
+            print("** class doesn't exist **")
 
-            ky = f"{tok[0]}.{tok[1]}"
-            try:
-                del storage.all()[ky]
-            except:
-                print("** no instance found **")
-            storage.save()
+        ky = f"{tok[0]}.{tok[1]}"
+        try:
+            del storage.all()[ky]
+        except:
+            print("** no instance found **")
+        storage.save()
 
     def do_all(self, args):
         """Prints string representation of class"""
