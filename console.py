@@ -87,10 +87,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         """Prints string representation of class"""
-        if not args:
+        tok = args.split()
+        if args == '':
             print("** class name missing **")
             return
-        tok = args.split()
         if inspect.isclass(tok[0]):
             el = []
             for key, value in storage.all().items():
