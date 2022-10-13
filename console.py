@@ -46,20 +46,21 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         """Show string representation of object"""
         tok = args.split()
-        if len(tok) == 0:
+        if len(args) == 0:
             print("** class name missing **")
         if len(tok) == 1:
             print("** instance id missing **")
-        try:
-            eval(tok[0])
-        except:
-            print("** class doesn't exist **")
+        else:
+            try:
+                eval(tok[0])
+            except:
+                print("** class doesn't exist **")
 
-        ky = f"{tok[0]}.{tok[1]}"
-        try:
-            print(storage.all()[ky])
-        except KeyError:
-            print("** no instance found **")
+            ky = f"{tok[0]}.{tok[1]}"
+            try:
+                print(storage.all()[ky])
+            except KeyError:
+                print("** no instance found **")
 
 
     def do_destroy(self, args):
@@ -88,13 +89,6 @@ class HBNBCommand(cmd.Cmd):
         """Prints string representation of class"""
         tok = args.split()
         el = []
-        cls_dic = {"BaseModel": BaseModel,
-                    "Amenity": Amenity,
-                    "City": City,
-                    "Place": Place,
-                    "Review": Review,
-                    "State": State,
-                    "User": User}
         if args != '':
 
             if tok[0] == "BaseModel" or tok[0] == "Amenity" or tok[0] == "City" or tok[0] == "Place" or tok[0] == "Review" or tok[0] == "State" or tok[0] == "User": 
