@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in storage.all().items():
                     el += list(value.__str__())
             print(el)
-        if inspect.isclass(tok[0]):
+        elif inspect.isclass(tok[0]):
             for key, value in storage.all().items():
                 if tok[0] == value.__class__.__name__:
                     el += list(value.__str__())
