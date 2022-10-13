@@ -96,10 +96,12 @@ class HBNBCommand(cmd.Cmd):
                     "User": User}
         if args == "":
             print([str(value) for value in storage.all().values()])
+            return
         tok = args.split()
-        if print(cls_dic[tok[0]]) is False:
+        if print(cls_dic[tok[0]]):
+            print([str(value) for value in storage.all().values() if value.__class__.__name__ == tok[0]])
+        else:
             print("** class doesn't exist **")
-        print([str(value) for value in storage.all().values() if value.__class__.__name__ == tok[0]])
 
     def do_update(self, args):
         """Updates instance attribute"""
