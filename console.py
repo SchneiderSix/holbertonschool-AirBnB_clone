@@ -111,6 +111,7 @@ class HBNBCommand(cmd.Cmd):
             return
         if len(tok) == 1:
             print("** instance id missing **")
+            return
         else:
             ky = f"{tok[0]}.{tok[1]}"
             if ky not in storage.all():
