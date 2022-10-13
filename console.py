@@ -55,7 +55,7 @@ class HBNBCommand(cmd.Cmd):
             ky = f"{tok[0]}.{tok[1]}"
             try:
                 print(storage.all()[ky])
-            except KeyError:
+            except:
                 print("** no instance found **")
             try:
                 eval(tok[0])
