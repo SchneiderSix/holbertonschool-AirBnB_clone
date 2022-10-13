@@ -10,7 +10,6 @@ import models
 class TestBaseModel(unittest.TestCase):
     """Testing base_model"""
     def test_BaseModel_save(self):
-        from models.base_model import BaseModel
         my_model = BaseModel()
         my_model.name = "My First Model"
         my_model.my_number = 89
