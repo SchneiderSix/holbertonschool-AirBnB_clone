@@ -10,7 +10,7 @@ class TestFileStorage(unittest.TestCase):
     def test_filestorage(self):
         my_model = FileStorage()
         my_model_list = storage.all()
-        self.assertEqual(type(my_model_list), list)
+        self.assertEqual(type(my_model_list), dict)
 
 if __name__ == "__main__":
     unittest.main()
