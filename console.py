@@ -111,6 +111,10 @@ class HBNBCommand(cmd.Cmd):
             return
         if len(tok) == 1:
             print("** instance id missing **")
+        else:
+            ky = f"{tok[0]}.{tok[1]}"
+            if ky not in storage.all():
+                print("** no instance found **")
         if len(tok) == 2:
             print("** attribute name missing **")
         if len(tok) == 3:
@@ -119,10 +123,6 @@ class HBNBCommand(cmd.Cmd):
             eval(tok[0])
         except:
             print("** class doesn't exist **")
-
-        ky = f"{tok[0]}.{tok[1]}"
-        if ky not in storage.all():
-            print("** no instance found **")
 
         for key, value in storage.all().items():
             if tok[0] == value.__class__.__name__ and tok[1].strip('"') == value.id:
