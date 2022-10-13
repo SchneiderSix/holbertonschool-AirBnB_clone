@@ -97,14 +97,13 @@ class HBNBCommand(cmd.Cmd):
                     "User": User}
         if args != '':
 
-            for ky in cls_dic:
-                if tok[0] == ky: 
-                    for key in storage.all():
-                        if tok[0] in key:
-                            el.append(str(storage.all()[key]))
-                    print(el)
-                else:
-                    print("** class doesn't exist **")
+            if tok[0] == "BaseModel" or tok[0] == "Amenity" or tok[0] == "City" or tok[0] == "Place" or tok[0] == "Review" or tok[0] == "State" or tok[0] == "User": 
+                for key in storage.all():
+                    if tok[0] in key:
+                        el.append(str(storage.all()[key]))
+                 print(el)
+            else:
+                print("** class doesn't exist **")
         else:
             el = [str(value) for key, value in storage.all().items()]
             print(el)
