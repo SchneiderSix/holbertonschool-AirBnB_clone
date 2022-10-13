@@ -97,11 +97,15 @@ def do_all(self, args):
     if args != '':
 
         if print(tok[0] in cls_dic):
-            print([str(value) for value in storage.all().values() if value.__class__.__name__ == tok[0]])
+            for key, value in storage.all().items():
+                if tok[0] == value.__class__.__name__:
+                    el += [value.__str__()]
+            print(el)
         else:
             print("** class doesn't exist **")
     else:
-        print([str(value) for value in storage.all().values()])
+        el = [str(value) for key, value in storage.all().items()]
+        print(el)
 
     def do_update(self, args):
         """Updates instance attribute"""
