@@ -94,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
                     "Review": Review,
                     "State": State,
                     "User": User}
-        if not args:
+        if args == "":
             print([str(value) for value in storage.all().values()])
         tok = args.split()
         if print(cls_dic[tok[0]]) is False:
