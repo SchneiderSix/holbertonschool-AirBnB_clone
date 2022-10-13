@@ -87,8 +87,9 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Prints string representation of class"""
         tok = args.split()
-        if len(tok) == 0:
+        if len(args) == 0:
             print("** class name missing **")
+            return
         try:
             eval(tok[0])
         except:
