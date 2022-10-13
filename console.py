@@ -117,16 +117,17 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
         if len(tok) == 2:
             print("** attribute name missing **")
-        if len(tok) == 3:
+        elif len(tok) == 3:
             print("** value missing **")
-        try:
-            eval(tok[0])
-        except:
-            print("** class doesn't exist **")
+        else:
+            try:
+                eval(tok[0])
+            except:
+                print("** class doesn't exist **")
 
-        for key, value in storage.all().items():
-            if tok[0] == value.__class__.__name__ and tok[1].strip('"') == value.id:
-                setattr(value, tok[2], tok[3])
+            for key, value in storage.all().items():
+                if tok[0] == value.__class__.__name__ and tok[1].strip('"') == value.id:
+                    setattr(value, tok[2], tok[3])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
