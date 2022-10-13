@@ -94,8 +94,8 @@ class HBNBCommand(cmd.Cmd):
                     "Review": Review,
                     "State": State,
                     "User": User}
-        if args != '':
-            tok = args.split()
+        if args != "":
+            tok = args.split(' ')
             if print(tok[0] in cls_dic):
                 for key, value in storage.all().items():
                     if tok[0] == value.__class__.__name__:
