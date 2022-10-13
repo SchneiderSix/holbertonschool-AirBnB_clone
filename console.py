@@ -3,7 +3,14 @@
 Module Console
 """
 import cmd
+from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -24,12 +31,16 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """Create instance of BaseModel"""
-        if args == "BaseModel":
-            pass
-        elif args == '':
-            "** class name missing **"
-        else:
-            "** class doesn't exist **"
+        tok = args.split()
+        if not tok[0]:
+            print("** class name missing **")
+            return
+        try:
+            nins = eval(tok[0])()
+            nins.save()
+            print(nins.id)
+        except:
+            print("** class doesn't exist **")
 
     def do_show(self, args):
         """Show string representation of object"""
