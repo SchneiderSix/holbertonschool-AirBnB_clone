@@ -86,7 +86,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         """Prints string representation of class"""
-        tok = args.split()
         el = []
         cls_dic = {"BaseModel": BaseModel,
                     "Amenity": Amenity,
@@ -96,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
                     "State": State,
                     "User": User}
         if args != '':
-
+            tok = args.split()
             if print(tok[0] in cls_dic):
                 for key, value in storage.all().items():
                     if tok[0] == value.__class__.__name__:
