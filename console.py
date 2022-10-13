@@ -95,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
                     "Review": Review,
                     "State": State,
                     "User": User}
-        if args == '':
+        if args != '':
 
             if print(tok[0] in cls_dic):
                 for key, value in storage.all().items():
