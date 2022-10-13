@@ -87,7 +87,6 @@ class HBNBCommand(cmd.Cmd):
 def do_all(self, args):
     """Prints string representation of class"""
     tok = args.split()
-    el = []
     cls_dic = {"BaseModel": BaseModel,
                 "Amenity": Amenity,
                 "City": City,
@@ -98,15 +97,11 @@ def do_all(self, args):
     if args != '':
 
         if print(tok[0] in cls_dic):
-            for key, value in storage.all().items():
-                if tok[0] == value.__class__.__name__:
-                    el += [value.__str__()]
-            print(el)
+            print([str(value) for value in storage.all().values() if value.__class__.__name__ == tok[0]])
         else:
             print("** class doesn't exist **")
     else:
-        el = [str(value) for key, value in storage.all().items()]
-        print(el)
+        print([str(value) for value in storage.all().values()])
 
     def do_update(self, args):
         """Updates instance attribute"""
