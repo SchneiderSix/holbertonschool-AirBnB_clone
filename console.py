@@ -95,19 +95,19 @@ class HBNBCommand(cmd.Cmd):
                     "Review": Review,
                     "State": State,
                     "User": User}
-        if args != '':
-
-            if cls_dic[tok[0]] is False:
-                print("** class doesn't exist **")
-            else:
+        if args == '':
+            el = [str(value) for key, value in storage.all().items()]
+            print(el)
+            return
+        else:
+            if cls_dic[tok[0]]:
                 for key, value in storage.all().items():
                     if tok[0] == value.__class__.__name__:
                         el = [str(value) for key, value in storage.all().items()]
                 print(el)
-        else:
-            el = [str(value) for key, value in storage.all().items()]
-            print(el)
-            return
+                return
+            else:
+                print("** class doesn't exist **")
 
     def do_update(self, args):
         """Updates instance attribute"""
