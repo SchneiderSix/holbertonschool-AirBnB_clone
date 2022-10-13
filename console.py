@@ -99,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
 
             if print(tok[0] in cls_dic):
                 el = [str(value) for key, value in storage.all().items()
-                    if tok[0] == value.__class__.__name__:]
+                    if tok[0] == value.__class__.__name__]
                 print(el)
             else:
                 print("** class doesn't exist **")
