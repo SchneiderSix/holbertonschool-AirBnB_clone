@@ -91,7 +91,6 @@ class HBNBCommand(cmd.Cmd):
         el = []
         if not args:
             for key, value in storage.all().items():
-                if tok[0] == value.__class__.__name__:
                     el += list(value.__str__())
             print(el)
         if inspect.isclass(tok[0]):
