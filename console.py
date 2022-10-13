@@ -83,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_all(self, args):
-        """Prints string representation of class"""
+        """Prints string representation of instances"""
         tok = args.split()
         el = []
         if args != '':
