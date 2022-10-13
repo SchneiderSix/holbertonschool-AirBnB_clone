@@ -3,7 +3,6 @@
 Module Console
 """
 import cmd
-import inspect
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
@@ -91,7 +90,9 @@ class HBNBCommand(cmd.Cmd):
         el = []
         if args != '':
 
-            if inspect.isclass(tok[0]):
+            if tok[0] == "BaseModel" or tok[0] == "Amenity" or
+            tok[0] == "City" or tok[0] == "Place" or
+            tok[0] == "Review" or tok[0] == "State" or tok[0] == "User":
                 for key, value in storage.all().items():
                     if tok[0] == value.__class__.__name__:
                         el = [str(value) for key, value in storage.all().items()]
