@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         """Create instance of BaseModel"""
         tok = args.split()
-        if len(tok) == 0:
+        if len(args) == 0:
             print("** class name missing **")
         try:
             nins = eval(tok[0])()
