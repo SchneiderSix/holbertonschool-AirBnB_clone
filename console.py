@@ -97,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
                     "User": User}
         if args != '':
 
-            for ky, val in cls_dic:
+            for ky in cls_dic:
                 if tok[0] == ky: 
                     for key in storage.all():
                         if tok[0] in key:
