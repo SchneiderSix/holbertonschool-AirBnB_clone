@@ -3,6 +3,7 @@
 Module Console
 """
 import cmd
+import inspect
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
@@ -87,19 +88,17 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Prints string representation of class"""
         tok = args.split()
-        if len(args) == 0:
+        if not args:
             print("** class name missing **")
             return
-        try:
-            eval(tok[0])
-        except:
+        if inspect.isclass(tok[0]):
+            el = []
+            for key, value in storage.all().items():
+                if tok[0] == value.__class__.__name__:
+                    el += list(value.__str__())
+            print(el)
+        else:
             print("** class doesn't exist **")
-
-        el = []
-        for key, value in storage.all().items():
-            if tok[0] == value.__class__.__name__:
-                el += list(value.__str__())
-        print(el)
 
     def do_update(self, args):
         """Updates instance attribute"""
