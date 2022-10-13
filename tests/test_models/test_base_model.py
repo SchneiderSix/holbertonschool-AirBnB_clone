@@ -5,7 +5,7 @@
 import unittest
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-from . import storage
+from models.__init__ import storage
 
 class TestBaseModel(unittest.TestCase):
     """Testing base_model"""
