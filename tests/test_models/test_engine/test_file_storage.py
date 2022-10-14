@@ -8,8 +8,6 @@ import models
 class TestFileStorage(unittest.TestCase):
     """Testing FileStorage"""
     def test_filestorage(self):
-        storage = FileStorage()
-        storage.reload()
         my_model = FileStorage()
         my_model_dict = storage.all()
         self.assertEqual(type(my_model_dict), dict)
