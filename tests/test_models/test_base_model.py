@@ -4,7 +4,7 @@
 
 import unittest
 from models.engine.file_storage import FileStorage
-import models
+from models.base_model import BaseModel
 from datetime import datetime
 
 
