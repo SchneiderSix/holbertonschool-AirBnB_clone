@@ -75,10 +75,34 @@ If you want to quit just use the command `quit` or `ctrl + D`.
 * `Non-interactive mode`
   Use echo with the command wanted and a pipeline with `console.py`, like this `echo "all" | ./console.py`.
 
-<p align="middle"><b>Create</b>
+<p align="middle"><b>Create + type</b>
 
 ``` javascript
-create "class/object name"
+create User
+```
+
+<p align="middle"><b>Show + type + id</b>
+
+``` javascript
+show User e9227551-770e-471d-bde6-9357bbd61836
+```
+
+<p align="middle"><b>All + type(optional, shows all objects of that type)</b>
+
+``` javascript
+show all
+```
+
+<p align="middle"><b>Update + type + id + attribute + value</b>
+
+``` javascript
+update User e9227551-770e-471d-bde6-9357bbd61836 name Robert
+```
+
+<p align="middle"><b>Destroy + type + id</b>
+
+``` javascript
+destroy User e9227551-770e-471d-bde6-9357bbd61836
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -93,6 +117,7 @@ create "class/object name"
 <!-- EXAMPLES -->
 ## Examples
 
+<img src="images/cmdexamples.png" alt="examples" width="auto" height="auto" align="middle">
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
