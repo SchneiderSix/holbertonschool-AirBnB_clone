@@ -110,7 +110,7 @@ destroy User e9227551-770e-471d-bde6-9357bbd61836
 <!-- ARCHITECTURE -->
 ## Architecture
 
-<img src="images/cmdexamples.png" alt="examples" width="auto" height="auto" align="middle">
+<img src="images/architecturelayers.png" alt="architecturelayers" width="auto" height="auto" align="middle">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
