@@ -15,9 +15,9 @@ class TestBaseModel(unittest.TestCase):
         my_model = BaseModel()
         my_model.name = "My First Model"
         my_model.my_number = 89
-        my_model_dict = my_model.to_dict()
         storage = FileStorage()
         storage.all().clear()
+        my_dict = my_model.to_dict()
         sve = BaseModel()
         try:
             os.remove("file.json")
@@ -29,7 +29,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(my_model.my_number, 89)
         self.assertTrue(isinstance(my_model.created_at, datetime))
         self.assertTrue(isinstance(my_model.updated_at, datetime))
-        self.assertEqual(type(my_model_dict), dict)
+        self.assertEqual(my_dict["id"], my_model.id)
         self.assertTrue(os.path.exists("file.json"))
 
 
