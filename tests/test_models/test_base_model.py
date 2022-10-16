@@ -30,7 +30,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(isinstance(my_model.created_at, datetime))
         self.assertTrue(isinstance(my_model.updated_at, datetime))
         self.assertEqual(my_dict["id"], my_model.id)
-        self.assertEqual([{my_model.__class__.__name__}] ({my_model.id}) {my_model.__dict__}, my_model.__str__())
+        self.assertEqual('[{my_model.__class__.__name__}] ({my_model.id}) {my_model.__dict__}', my_model.__str__())
         self.assertTrue(os.path.exists("file.json"))
 
 
