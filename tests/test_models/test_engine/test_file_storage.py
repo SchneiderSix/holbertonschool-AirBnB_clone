@@ -11,7 +11,7 @@ class TestFileStorage(unittest.TestCase):
         storage = FileStorage()
         storage.all().clear()
         storage.reload()
-        self.assertNotEqual(len(storage.all()), 0)
+        self.assertEqual(len(storage.all()), 0)
 
 if __name__ == "__main__":
     unittest.main()
