@@ -24,7 +24,7 @@ class TestBaseModel(unittest.TestCase):
         except Exception:
             pass
         sve.save()
-        strmodel = [{my_model.__class__.__name__}] ({my_model.id}) {my_model.__dict__}
+        strmodel = f"[{my_model.__class__.__name__}] ({my_model.id}) {my_model.__dict__}"
         self.assertEqual(my_model.__class__.__name__, "BaseModel")
         self.assertEqual(my_model.name, "My First Model")
         self.assertEqual(my_model.my_number, 89)
