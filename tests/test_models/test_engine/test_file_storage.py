@@ -2,15 +2,18 @@
 """Module Test file_storage"""
 import unittest
 from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
 
 
 class TestFileStorage(unittest.TestCase):
     """Testing FileStorage"""
     def test_filestorage(self):
         storage = FileStorage()
-        my_model = FileStorage()
-        my_model_dict = storage.all()
-        self.assertEqual(type(my_model_dict), dict)
+        storage.all().clear()
+        my_model = BaseModel()
+        storage.save()
+        storage.reload()
+        self.assertNotEqual(len(storage.all()), 0)
 
 if __name__ == "__main__":
     unittest.main()
