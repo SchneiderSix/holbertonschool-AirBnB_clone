@@ -12,7 +12,6 @@ class TestFileStorage(unittest.TestCase):
         storage.all().clear()
         my_model = BaseModel()
         storage.save()
-        storage.reload()
         self.assertNotEqual(len(storage.all()), 0)
 
 if __name__ == "__main__":
