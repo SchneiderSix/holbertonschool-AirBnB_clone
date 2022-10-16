@@ -4,6 +4,7 @@
 
 import unittest
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 from datetime import datetime
 
 
@@ -21,6 +22,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(isinstance(my_model.created_at, datetime))
         self.assertTrue(isinstance(my_model.updated_at, datetime))
         self.assertEqual(type(my_model_dict), dict)
+
 
 if __name__ == "__main__":
     unittest.main()
