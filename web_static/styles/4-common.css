@@ -9,5 +9,9 @@ body {
         max-width: 1000px;
         margin-top: 30px;
         margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
         align-items: center;
+        position: relative;
+        display: flex;
 }
