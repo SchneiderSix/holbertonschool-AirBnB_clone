@@ -61,7 +61,7 @@ h4 {
         position: absolute;
 }
 .popover li {
-        margin-left: 15px;
+        margin-left: 10px;
         display: flex;
         align-items: center;
         margin-bottom: 5px;
