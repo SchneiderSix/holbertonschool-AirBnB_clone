@@ -69,6 +69,7 @@ h4 {
 }
 .popover h2 {
         margin: auto;
+        font-size: 16px;
 }
 .popover h2:nth-child(4) {
         padding-top: 15px;
