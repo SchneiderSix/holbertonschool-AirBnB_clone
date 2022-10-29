@@ -1,6 +1,7 @@
 .places {
         top: 100px;
         position: absolute;
+        margin-left: 30px;
 }
 .places h1 {
     font-size: 30px;
@@ -20,6 +21,9 @@
 .places_boxes{
         display: flex;
         flex-wrap: wrap;
-        position: fixed;
         justify-content: center;
+        position: fixed;
+        width: 75.5%;
+        margin-left: -230px;
+        margin-top: -30px;
     }
