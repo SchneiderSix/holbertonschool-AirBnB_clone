@@ -61,18 +61,16 @@ h4 {
         position: absolute;
 }
 .popover li {
-        margin-left: 10px;
+        margin-left: 20px;
         display: flex;
         align-items: center;
         margin-bottom: 5px;
-        padding-left: 5px;
+        padding-left: 10px;
 }
 .popover h2 {
-        margin: auto;
+        margin-left: -15px;
         font-size: 16px;
-}
-.popover h2:nth-child(4) {
-        padding-top: 15px;
+        margin-bottom: 0;
 }
 .filters .locations:hover .popover, .filters .amenities:hover .popover {
         visibility: visible;
